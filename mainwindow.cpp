@@ -6,6 +6,20 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //创建一个CentralWidget,并将其设置为MainWindow的中心部件
+    _login_dlg = new loginDialog(this);
+    setCentralWidget(_login_dlg);
+    //_login_dlg->show();
+
+    //创建和注册消息的链接
+    connect(_login_dlg, &loginDialog::switchRegister,
+            this, &MainWindow::SlotSwitchReg);
+
+    _reg_dlg = new RegisterDialog(this);
+
+    _login_dlg->setWindowFlags(Qt::CustomizeWindowHint|Qt::FramelessWindowHint);
+    _reg_dlg->setWindowFlags(Qt::CustomizeWindowHint|Qt::FramelessWindowHint);
+    _reg_dlg->hide();
 }
 
 MainWindow::~MainWindow()
@@ -13,3 +27,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::SlotSwitchReg(){
+    setCentralWidget(_reg_dlg);
+    _login_dlg->hide();
+    _reg_dlg->show();
+}

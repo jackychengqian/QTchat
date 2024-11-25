@@ -9,6 +9,8 @@
 #include <memory>
 #include <QByteArray>
 #include <QNetworkReply>
+#include <QDir>
+#include <QSettings>
 extern std::function<void(QWidget*)> repolish;
 enum ReqId{
     ID_GET_VARIFY_CODE = 1001, //获取验证码
@@ -22,4 +24,7 @@ enum ErrorCodes{
 enum Modules{
     REGISTERMOD = 0,
 };
+
+extern QString gate_url_prefix;
+
 #endif // GLOBAL_H

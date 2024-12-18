@@ -12,24 +12,31 @@ DESTDIR = ./bin
 
 SOURCES += \
     HttpMgr.cpp \
+    clickedlabel.cpp \
     global.cpp \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
-    registerdialog.cpp
+    registerdialog.cpp \
+    resetdialog.cpp \
+    timerbtn.cpp
 
 HEADERS += \
     HttpMgr.h \
+    clickedlabel.h \
     global.h \
     logindialog.h \
     mainwindow.h \
     registerdialog.h \
-    singleton.h
+    resetdialog.h \
+    singleton.h \
+    timerbtn.h
 
 FORMS += \
     logindialog.ui \
     mainwindow.ui \
-    registerdialog.ui
+    registerdialog.ui \
+    resetdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
